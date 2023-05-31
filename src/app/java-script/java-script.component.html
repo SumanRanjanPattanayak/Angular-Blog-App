@@ -1,0 +1,26 @@
+<div class="heading-box">
+    <h3>JavaScript Interview Questions...</h3>
+    <h5 style="margin-top: 20px; font-family: 'Times New Roman', Times, serif;">Last Updated On: 05/22/2023
+    </h5>
+</div>
+<div class="container">
+    <aside class="left-container">
+        <p><strong class="bd-links-heading d-flex w-100 align-items-center fw-semibold">
+                Contents
+            </strong>
+        </p>
+        <div *ngFor="let data of apiCall">
+            <ng-container *ngIf="data.bqA_Type === 'JavaScript'">
+                {{ data.bqA_Question_Order }}. {{ data.bqA_Question }}<br><br>
+            </ng-container>
+        </div>
+    </aside>
+    <main class="right-container">
+        <div *ngFor="let data of apiCall">
+            <ng-container *ngIf="data.bqA_Type === 'JavaScript'">
+                {{ data.bqA_Question_Order }}. {{ data.bqA_Question }}<br>
+                Ans. {{ data.bqA_Answer }}<br><br>
+            </ng-container>
+        </div>
+    </main>
+</div>

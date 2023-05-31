@@ -8,16 +8,16 @@
         <p><strong class="bd-links-heading d-flex w-100 align-items-center fw-semibold">
                 Contents
             </strong></p>
-        <div *ngFor="let data of apiCall">
+        <div *ngFor="let data of apiCall; let i = index" (click)="scrollToHeading(i)">
             <ng-container *ngIf="data.bqA_Type === 'C#'">
                 {{ data.bqA_Question_Order }}. {{ data.bqA_Question }}<br><br>
             </ng-container>
         </div>
     </aside>
     <main class="right-container">
-        <div *ngFor="let data of apiCall">
+        <div *ngFor="let data of apiCall; let i = index" id="heading{{ i }}">
             <ng-container *ngIf="data.bqA_Type === 'C#'">
-                {{ data.bqA_Question_Order }}. {{ data.bqA_Question }}<br>
+                <h5>{{ data.bqA_Question_Order }}. {{ data.bqA_Question }}</h5>
                 Ans. {{ data.bqA_Answer }}<br><br>
             </ng-container>
         </div>

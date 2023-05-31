@@ -22,6 +22,7 @@ body {
 .left-container {
     float: left;
     width: 20%;
+    cursor: pointer;
     overflow-y: scroll;
     display: block !important;
     height: calc(100vh - 6rem);
@@ -57,7 +58,6 @@ a.link {
 
 .back-to-top {
     display: none;
-    /* Hide the button by default */
     position: fixed;
     bottom: 20px;
     right: 30px;

@@ -4,59 +4,22 @@
     </h5>
 </div>
 <div class="container">
-    <aside class="left-container">
-        <p><strong class="bd-links-heading d-flex w-100 align-items-center fw-semibold">
-                What's Trending!
-            </strong>
-        </p>
-    </aside>
-    <main class="right-container">
-        <div id="news-container">
-            <script>
-                const fetchNews = async () => {
-                    console.log("fetching News...");
-                    var url = 'https://newsapi.org/v2/everything?' +
-                        'q=Apple&' +
-                        'pageSize=20&'+
-                        'from=2023-05-30&' +
-                        'sortBy=popularity&' +
-                        'apiKey=fda8f90ebddf44fda7e02c13cd1f0068';
-                    var req = new Request(url);
-                    let response = await a.json()
-                    console.log(response);
-                }
-            </script>
-            <!-- <script>
-                var url = 'https://newsapi.org/v2/everything?' +
-                  'q=Technology&' +
-                  'from=2023-05-30&' +
-                  'sortBy=popularity&' +
-                  'apiKey=fda8f90ebddf44fda7e02c13cd1f0068';
-                var req = new Request(url);
-                fetch(req)
-                  .then(function(response) {
-                    return response.json();
-                  })
-                  .then(function(data) {
-                    // Update the HTML with the fetched data
-                    var newsContainer = document.getElementById('news-container');
-              
-                    // Iterate through the articles and display them
-                    data.articles.forEach(function(article) {
-                      var articleElement = document.createElement('div');
-                      articleElement.innerHTML = `
-                        <h2>${article.title}</h2>
-                        <p>${article.description}</p>
-                        <a href="${article.url}" target="_blank">Read more</a>
-                      `;
-                      newsContainer.appendChild(articleElement);
-                    });
-                  })
-                  .catch(function(error) {
-                    console.log('Error fetching news:', error);
-                  });
-              </script> -->
-        </div>
-
-    </main>
+  <aside class="left-container">
+    <p>
+      <strong class="bd-links-heading d-flex w-100 align-items-center fw-semibold">
+        What's Trending!
+      </strong>
+    </p>
+    <div *ngFor="let article of articles; let i = index" (click)="scrollToHeading(i)">
+      {{ i + 1 }}. {{ article.title }}
+      <br><br>
+    </div>
+  </aside>
+  <main class="right-container">
+    <div *ngFor="let article of articles; let i = index" id="heading{{ i }}">
+      <h4>{{ i + 1 }}. {{ article.title }}</h4>
+      <p>{{ article.description }}</p>
+      <a [href]="article.url" target="_blank">Read more</a>
+    </div>
+  </main>
 </div>

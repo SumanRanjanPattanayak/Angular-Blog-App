@@ -13,4 +13,12 @@ export class SqlComponent {
       this.apiCall=data;
     })
   }
+  scrollToHeading(index: number): void {
+    const headingElement = document.getElementById(`heading${index}`);
+    if (headingElement) {
+      const offset = 70;
+      const topPosition = headingElement.offsetTop - offset;
+      window.scrollTo({ top: topPosition, behavior: 'smooth' });
+    }
+  }
 }
